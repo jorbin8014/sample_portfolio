@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Portfolio</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #f6faff;
+      color: #222;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #0072ff, #00c6ff);
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px 40px 20px;
+    }
+    header h1 {
+      margin: 0 0 16px 0;
+      font-size: 2.8rem;
+      letter-spacing: 1.5px;
+    }
+    header p {
+      margin: 0;
+      font-size: 1.3rem;
+      opacity: 0.92;
+    }
+    nav {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+      text-align: center;
+      padding: 12px 0;
+    }
+    nav a {
+      color: #0072ff;
+      text-decoration: none;
+      margin: 0 18px;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #00c6ff;
+    }
+
+    .resume-btn {
+  display: block;
+  margin: 20px auto 0 auto; /* This centers the block horizontally */
+  padding: 12px 40px;
+  background: linear-gradient(90deg, #0072ff, #00c6ff);
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border-radius: 28px;
+  text-decoration: none;
+  box-shadow: 0 2px 14px rgba(0, 114, 255, 0.2);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+.resume-btn:hover {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  box-shadow: 0 6px 28px rgba(0, 198, 255, 0.4);
+}
+
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    }
+    .section {
+      margin-bottom: 48px;
+    }
+    h2 {
+      color: #0072ff;
+      font-size: 2rem;
+      border-bottom: 2px solid #e0f2ff;
+      padding-bottom: 8px;
+      margin-bottom: 28px;
+      font-weight: 700;
+    }
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 24px;
+    }
+    .about img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 2px 12px rgba(0,114,255,0.09);
+    }
+    .about-bio {
+      flex: 1 1 300px;
+    }
+
+    /* Animated Cards Styles */
+    .projects-list, .experience-list {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .project-card, .experience-item {
+      background: #f6faff;
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 4px solid #0072ff;
+      transition: box-shadow 0.3s, transform 0.3s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      opacity: 0;
+      transform: translateY(40px) scale(0.96);
+      animation: fadeInUp 0.82s cubic-bezier(0.32,1.25,0.33,1) forwards;
+    }
+    .project-card {
+      animation-delay: 0.1s;
+    }
+    .experience-item {
+      animation-delay: 0.2s;
+    }
+    .projects-list .project-card:nth-child(2) { animation-delay: 0.2s;}
+    .projects-list .project-card:nth-child(3) { animation-delay: 0.3s;}
+    .experience-list .experience-item:nth-child(2) { animation-delay: 0.3s;}
+    .project-card:hover, .experience-item:hover {
+      box-shadow: 0 8px 26px rgba(0,114,255,0.15);
+      transform: translateY(-5px) scale(1.025);
+      border-left: 4px solid #00c6ff;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .skill {
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 1rem;
+      margin-bottom: 6px;
+      opacity: 0.85;
+    }
+    .experience-title {
+      font-weight: bold;
+      color: #0072ff;
+      font-size: 1.13rem;
+    }
+    .experience-date {
+      float: right;
+      font-size: 0.98rem;
+      color: #bbb;
+      font-weight: normal;
+      margin-left: 10px;
+    }
+    .contact-form {
+      text-align: center;
+    }
+    .whatsapp-btn {
+      display: inline-block;
+      margin: 32px auto 0 auto;
+      padding: 12px 32px;
+      background: linear-gradient(90deg, #25d366, #128c7e);
+      color: #fff;
+      font-size: 1.18rem;
+      border: none;
+      border-radius: 28px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 2px 12px rgba(37, 211, 102, 0.12);
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .whatsapp-btn:hover {
+      background: linear-gradient(90deg, #128c7e, #25d366);
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.18);
+    }
+    @media (max-width: 600px) {
+      .about {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .experience-item, .project-card {
+        padding: 12px 12px;
+      }
+    }
+    footer {
+  margin-top: 64px;
+  background: linear-gradient(90deg, #0072ff, #00c6ff 65%);
+  color: #fff;
+  text-align: center;
+  padding: 36px 0 16px 0;
+  border-radius: 22px 22px 0 0;
+  box-shadow: 0 -4px 24px rgba(0,114,255,0.08) inset;
+}
+.footer-content p {
+  margin: 8px 0;
+  font-size: 1.15rem;
+}
+.footer-social {
+  margin: 14px 0;
+}
+.footer-social a {
+  display: inline-block;
+  margin: 0 12px;
+  vertical-align: middle;
+  transition: transform 0.2s;
+}
+.footer-social a:hover {
+  transform: scale(1.18) rotate(-6deg);
+}
+.footer-social img {
+  width: 32px;
+  height: 32px;
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  transition: opacity 0.2s, filter 0.2s;
+}
+.footer-social a:hover img {
+  opacity: 1;
+  filter: brightness(1) drop-shadow(0 0 8px #fff2);
+}
+.footer-copy {
+  font-size: 1rem;
+  opacity: 0.85;
+  letter-spacing: 0.05em;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Jorbin Jolly</h1>
+    <p>Software Consultant & Tech Innovator</p>
+  </header>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+
+  <div class="container">
+    <section id="about" class="section">
+      <!-- Resume Download Button -->
+    <a class="resume-btn" href="Jorbin Jolly_Resume.pdf" download="YourName_Resume.pdf" target="_blank" rel="noopener">
+      <center>Download Resume</center>
+    </a>
+      <h2>About Me</h2>
+      <div class="about">
+        <!-- <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile Picture"> -->
+        <img src="ME.jpg" alt="Profile Picture">
+        <div class="about-bio">
+          <p>Hello! I’m <b>Jorbin Jolly</b>, a dedicated Software Consultant with over a year of hands-on experience working with ERP systems, particularly in school management. 
+                    I’m passionate about solving problems, creating smooth user experiences, and constantly learning.
+                    In my free time, I enjoy traveling, music production, and video editing.</p>
+        </div>
+      </div>
+    </section>
+    <section id="experience" class="section">
+      <h2>Experience</h2>
+      <ul class="experience-list">
+        <li class="experience-item">
+          <span class="experience-title">Technical / Software Consultant at Central Education Department</span>
+          <span class="experience-date">2024 - Present</span>
+          <p>Streamlined ERP System Processes: Optimized and maintained ERP system workflows, reducing data entry errors by 25% and improving overall operational efficiency. Collaborated with cross-functional teams to ensure accurate data integration and system functionality.</p>
+          <p>User Training and Support: Conducted training sessions for 50+ employees on ERP system usage, enhancing user proficiency and adoption rates. Provided ongoing technical support, resolving system-related issues promptly to minimize downtime.</p>
+        </li>
+        <li class="experience-item">
+          <span class="experience-title">Freelancer</span>
+          <span class="experience-date">2017-Present</span>
+          <p>Graphical Design, Video & Audio Editing, Making Website.</p>
+          <p>Proficient in graphic design, video and audio editing, and website development, with a proven ability to create visually compelling and functional digital content.</p>
+        </li>
+        <!-- Add more experience items as needed -->
+      </ul>
+    </section>
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="projects-list">
+        <div class="project-card">
+          <h3>Crime Reporting Platform  👮🚓𓍝</h3>
+          <p>The Crime Reporting System is a web-based application developed using HTML, CSS, and PHP that allows users to report crimes online and helps authorities manage and track complaints efficiently.</p>
+          <p>This system enables citizens to register, log in, and submit crime reports with details such as crime type, location, and description. Reported cases are stored in a database and can be accessed by administrators (police/authority) through a secure login. Admins can review, update, and track the status of complaints, making the process more transparent and efficient.</p>
+          <p>The front end is designed with HTML and CSS for a simple, user-friendly interface, while PHP and MySQL handle the backend operations, including form submissions, authentication, and database management.</p>
+        </div>
+        <div class="project-card">
+          <h3>ChatNest 🤖</h3>
+          <p>ChatNest is a real-time online chat application developed using Python, HTML, CSS, and Java. The system is designed to provide a secure and interactive platform where users can connect and communicate seamlessly over the internet.</p>
+          <p>The application allows users to register, log in, and engage in one-to-one or group chat sessions. The frontend, built with HTML and CSS, ensures a clean and responsive interface for smooth user interaction. The backend is powered by Python, handling user authentication, message storage, and server-side operations. Java is utilized to manage real-time messaging, socket programming, and efficient data handling, enabling instant message delivery across connected users.</p>
+          <p>With a focus on simplicity, speed, and security, ChatNest aims to create a reliable platform for online communication.</p>
+        </div>
+        <!-- Add more project cards as needed -->
+      </div>
+    </section>
+    <section id="skills" class="section">
+      <h2>Technical Skills</h2>
+      <div class="skills">
+        <span class="skill">HTML5</span>
+        <span class="skill">CSS3</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">Python</span>
+        <span class="skill">UI/UX Design</span>
+        <span class="skill">PPT,Word,Excel</span>
+        <!-- Add more skills as needed -->
+      </div>
+    </section>
+    <section id="skills" class="section">
+      <h2>Soft Skills</h2>
+      <div class="skills">
+        <span class="skill">Client Relation Management</span>
+        <span class="skill">Time Management</span>
+        <span class="skill">Leadership</span>
+        <span class="skill">Adaptability & Flexibility</span>
+        <span class="skill">Continuous Learning Mindset</span>
+        <!-- Add more skills as needed -->
+      </div>
+    </section>
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>Like what you see? Feel free to reach out on WhatsApp!</p>
+      <div class="contact-form">
+        <a class="whatsapp-btn" href="https://wa.me/+917561098014?text=Hi%20there!%20I%20visited%20your%20portfolio%20website." target="_blank">
+          Send Message via WhatsApp
+        </a>
+        <!-- Replace 1234567890 with your WhatsApp number (international format, no +) -->
+      </div>
+    </section>
+  </div>
+  <footer>
+  <div class="footer-content">
+    <p>🚀 Thanks for visiting! Let’s connect:</p>
+    <div class="footer-social">
+      <a href="https://wa.me/+917561098014" target="_blank" title="WhatsApp"> 
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" />
+      </a>
+      <a href="https://github.com/yourusername" target="_blank" title="GitHub">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" />
+      </a>
+      <a href="https://linkedin.com/in/yourusername" target="_blank" title="LinkedIn">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" />
+      </a>
+      <!-- Add more social links as needed -->
+    </div>
+    <p class="footer-copy">© 2025 Your Name. Crafted with ❤️ and coffee.</p>
+  </div>
+  </footer>
+
+  <script>
+    // Animate all visible cards on DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.project-card, .experience-item');
+      cards.forEach((card, idx) => {
+        card.style.animationDelay = (0.1 + idx * 0.08) + 's';
+        card.classList.add('animated'); // For future use if you add more JS animation
+      });
+    });
+  </script>
+</body>
+</html>
